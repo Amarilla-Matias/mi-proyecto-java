@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcio" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b55074ba-390c-432d-8c96-4fa713abad4f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     *,
+     empleado.`idEmpleado` AS empleado_idEmpleado,
+     empleado.`Nombre_Emple` AS empleado_Nombre_Emple,
+     empleado.`Apellido_Emple` AS empleado_Apellido_Emple,
+     empleado.`Cedula_Emple` AS empleado_Cedula_Emple,
+     empleado.`Fecha_Nac_Emple` AS empleado_Fecha_Nac_Emple,
+     empleado.`Emple_Edad` AS empleado_Emple_Edad,
+     cargo.`Nombre_Cargo` AS cargo_Nombre_Cargo,
+     ciudad.`Ciu_Nombre` AS ciudad_Ciu_Nombre,
+     nacionalidad.`Nombre_Nacion` AS nacionalidad_Nombre_Nacion
+FROM
+     `cargo` cargo INNER JOIN `empleado` empleado ON cargo.`idCargo` = empleado.`Cargo_idCargo`
+     INNER JOIN `ciudad` ciudad ON empleado.`idCiudad` = ciudad.`idCiudad`
+     INNER JOIN `nacionalidad` nacionalidad ON empleado.`idNacionalidad` = nacionalidad.`idNacionalidad`]]>
+	</queryString>
+	<field name="idCargo" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre_Cargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idEmpleado" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre_Emple" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Apellido_Emple" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cedula_Emple" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Fecha_Nac_Emple" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idCiudad" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idNacionalidad" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cargo_idCargo" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Emple_Edad" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="iddepartamento" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Ciu_Nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre_Nacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="empleado_idEmpleado" class="java.lang.Long"/>
+	<field name="empleado_Nombre_Emple" class="java.lang.String"/>
+	<field name="empleado_Apellido_Emple" class="java.lang.String"/>
+	<field name="empleado_Cedula_Emple" class="java.lang.String"/>
+	<field name="empleado_Fecha_Nac_Emple" class="java.sql.Date"/>
+	<field name="empleado_Emple_Edad" class="java.lang.Long"/>
+	<field name="cargo_Nombre_Cargo" class="java.lang.String"/>
+	<field name="ciudad_Ciu_Nombre" class="java.lang.String"/>
+	<field name="nacionalidad_Nombre_Nacion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="692" y="10" width="100" height="20" uuid="2882a838-002e-4424-a3e9-f8a207d0298d"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="291" y="42" width="238" height="37" uuid="909ea14a-9982-4cc1-b21f-f9699c6c58c5"/>
+				<textElement>
+					<font size="16" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE FUNCIONARIOS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="148" height="47" uuid="09afa2ad-ca9d-4179-930f-395c481b0610"/>
+				<imageExpression><![CDATA["C:\\Users\\MATIAS\\Desktop\\IT\\project\\INTROPK\\src\\Imagenes\\LOGO21.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="36" height="20" uuid="8f32b3b1-ce38-4ac4-8c4e-a1091bb2f2c5"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="64" y="0" width="58" height="20" uuid="421b4b9b-b12e-4ba9-9d0e-8b720ccb6d32"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="0" width="80" height="20" uuid="3316d3dc-91a4-480c-b32d-982f225868ff"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="0" width="56" height="20" uuid="718b0cde-a6c2-482c-9806-4e1650345ec7"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="78" height="20" uuid="dc012a46-993a-4dfb-b4d0-1363bd54a867"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[FECHA NAC.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="429" y="0" width="47" height="20" uuid="3b079cd8-b734-4948-8806-7b08c38917ea"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[EDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="609" y="0" width="61" height="20" uuid="91346acf-30af-43f2-8456-e3b7bf8d54ce"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CIUDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="704" y="0" width="98" height="20" uuid="7adde47e-1241-416b-ad2d-d53b6688c621"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NACIONALIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="497" y="0" width="100" height="20" uuid="507a66e2-97fe-4c6e-9111-0d9334036ef5"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CARGO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="36" height="20" uuid="e44fde4d-3627-4619-a8ad-37156c45249a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{idEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="0" width="78" height="20" uuid="6edf4f31-8c6c-4ed0-9f8d-e31e51d1bf91"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Nombre_Emple}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="80" height="20" uuid="dd90ca73-4b39-44ff-9df7-652a1f7fa4bf"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Apellido_Emple}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="0" width="65" height="20" uuid="5a8e0bdc-66a2-4eab-a5ed-c237cce160c0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Cedula_Emple}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="78" height="20" uuid="95d09d71-20e4-42e1-9418-06fd0168c794"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Fecha_Nac_Emple}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="429" y="0" width="47" height="20" uuid="4bb24ea7-348e-4ee9-ba30-77bba64c2872"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Emple_Edad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="609" y="0" width="61" height="20" uuid="ed0fa97d-dc98-41a9-8f85-f62c3242e6ce"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Ciu_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="720" y="0" width="60" height="20" uuid="da2f2a79-0903-46bc-90d3-ec22aa8f8a24"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Nombre_Nacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="0" width="100" height="20" uuid="1bb13d3c-1d20-4201-84cb-73b8bbe51a8a"/>
+				<textFieldExpression><![CDATA[$F{cargo_Nombre_Cargo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="19" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="43" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="362" y="12" width="100" height="20" uuid="f5d88f9d-aeee-4ab5-891f-5f86dc570466"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
